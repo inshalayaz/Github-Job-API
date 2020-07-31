@@ -4,6 +4,7 @@ import {Container} from 'react-bootstrap'
 import Job from './Job'
 import JobPages from './JobPages';
 import SearchForm from './SearchForm';
+import Header from './Header'
 
 function App() {
   const [params,setParams] = useState({})
@@ -11,7 +12,7 @@ function App() {
   const {jobs, loading, error, hasNextPage} = useFetchJobs(params,page)
 
 function handleParamChange(e){
-  const param = e.target.name
+  const params = e.target.name
   const value = e.target.value
   setPage(1)
   setParams(prevParams =>{
@@ -20,6 +21,7 @@ function handleParamChange(e){
 }
   return (
     <Container>
+      <Header />
     <h1 className='mb-4'>Github Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       <JobPages page={page} setPage={setPage} hasNextPage= {hasNextPage} />
