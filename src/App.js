@@ -12,7 +12,7 @@ function App() {
   const {jobs, loading, error, hasNextPage} = useFetchJobs(params,page)
 
 function handleParamChange(e){
-  const param = e.target.name
+  const params = e.target.name
   const value = e.target.value
   setPage(1)
   setParams(prevParams =>{
